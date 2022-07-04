@@ -4,7 +4,7 @@
 set -e
 
 #Update and inastall all the required packages
-apt-get updae -y
+apt-get update -y
 apt- upgrade -y
 
 #auto create file and fill test in file
