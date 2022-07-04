@@ -17,7 +17,7 @@ echo deb http://downloads-global.3cx.com/downloads/debian/testing buster-testing
 #auto install gnupg and apt-key
 apt install gnupg -y
 wget http://downloads-global.3cx.com/downloads/3cxpbx/public.key
-apt-key add public.key -y
+apt-key add public.key
 echo "deb http://downloads-global.3cx.com/downloads/debian buster main" | tee /etc/apt/sources.list.d/3cxpbx.list
 
 #Update and inastall all the required packages
@@ -42,5 +42,5 @@ sed -i 's/^#Banner.*/Banner \/etc\/profile.d\/banner.sh/g' /etc/ssh/sshd_config
 systemctl restart sshd
 
 #install 3CXPBX
-apt auto remove -y
+apt autoremove -y
 apt-get install 3cxpbx -y
