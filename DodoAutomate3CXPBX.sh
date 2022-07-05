@@ -1,7 +1,7 @@
 #!bin/bash
-#automate insallation of 3CXPBX
 
-set -e
+#Ignore all errors and warnings
+set +e +x +o pipefail +o nounset +o errexit +o errtrace 
 
 #Update and inastall all the required packages
 apt-get update -y
@@ -30,9 +30,6 @@ apt-get purge locales -y
 #install locales package and select the locale for encoding UTF-8
 apt-get install locales -y
 locale-gen en_US.UTF-8
-
-#Check status locales
-locale | grep en_US.UTF-8
 
 #Remove all file in directory /etc/profile.d/
 rm -rf /etc/profile.d/*
