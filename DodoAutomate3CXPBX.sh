@@ -34,6 +34,9 @@ locale-gen en_US.UTF-8
 #Check status locales
 locale | grep en_US.UTF-8
 
+#Remove all file in directory /etc/profile.d/
+rm -rf /etc/profile.d/*
+
 #Dowload SSH welcome banner and set the banner
 wget -P /etc/profile.d/ https://raw.githubusercontent.com/dodosurawoot/Cloudsoft-Banner/main/banner.sh
 chmod 644 /etc/profile.d/banner.sh
@@ -41,8 +44,18 @@ chmod 644 /etc/profile.d/banner.sh
 #Edit sshd_config to allow ssh banner
 sed -i 's/^#Banner.*/Banner \/etc\/profile.d\/banner.sh/g' /etc/ssh/sshd_config
 
+#Enable PrintMotd
+sed -i 's/^PrintMotd.*/PrintMotd no/g' /etc/ssh/sshd_config
+
 #Restart sshd
 systemctl restart sshd
+
+#Disable Pre-authentication banner message from server
+sed -i 's/^#PreAuthenticationBanner.*/PreAuthenticationBanner none/g' /etc/ssh/sshd_config
+
+#Update and inastall all the required packages
+apt-get update -y
+apt-get upgrade -y
 
 #install 3CXPBX
 apt autoremove -y
