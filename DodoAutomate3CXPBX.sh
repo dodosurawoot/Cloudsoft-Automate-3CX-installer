@@ -1,23 +1,8 @@
 #!bin/bash
 
 #Ignore all errors and warnings
-set -e 
-
-#Disable Selinux Temporarily
-SELINUX_STATUS=$(getenforce)
-if [ "$SELINUX_STATUS" != "Disabled" ]; then
-    echo "Disabling SELINUX Temporarily"
-    setenforce 0
-else
-  echo "SELINUX it is already disabled"
-fi
-
-#Disable SeLinux Permanently
-sefile="/etc/selinux/config"
-if [ -e $sefile ]
-then
-  sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
-fi
+set +e
+set +x
 
 #Update and inastall all the required packages
 apt-get update -y
