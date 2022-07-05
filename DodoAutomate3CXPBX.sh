@@ -12,7 +12,7 @@ echo /etc/apt/sources.list.d/3cxpbx.list
 echo deb http://downloads-global.3cx.com/downloads/debian buster main >> /etc/apt/sources.list.d/3cxpbx.list
 
 echo /etc/apt/sources.list.d/3cxpbx-testing.list
-echo deb http://downloads-global.3cx.com/downloads/debian buster-testing main >> /etc/apt/sources.list.d/3cxpbx-testing.list
+echo deb  http://downloads-global.3cx.com/downloads/debian buster-testing main >> /etc/apt/sources.list.d/3cxpbx-testing.list
 
 #auto install gnupg and apt-key
 apt install gnupg -y
@@ -22,6 +22,7 @@ echo "deb http://downloads-global.3cx.com/downloads/debian buster main" | tee /e
 
 #Update and inastall all the required packages
 apt-get update -y
+apt-get upgrade -y
 
 #remove locales
 apt-get purge locales -y
@@ -29,7 +30,9 @@ apt-get purge locales -y
 #install locales package and select the locale for encoding UTF-8
 apt-get install locales -y
 locale-gen en_US.UTF-8
-update-locale LANG=en_US.UTF-8
+
+#Check status locales
+locale | grep en_US.UTF-8
 
 #Dowload SSH welcome banner and set the banner
 wget -P /etc/profile.d/ https://raw.githubusercontent.com/dodosurawoot/Cloudsoft-Banner/main/banner.sh
