@@ -12,7 +12,7 @@ echo /etc/apt/sources.list.d/3cxpbx.list
 echo deb http://downloads-global.3cx.com/downloads/debian buster main >> /etc/apt/sources.list.d/3cxpbx.list
 
 echo /etc/apt/sources.list.d/3cxpbx-testing.list
-echo deb http://downloads-global.3cx.com/downloads/debian/testing buster-testing main >> /etc/apt/sources.list.d/3cxpbx-testing.list
+echo deb http://downloads-global.3cx.com/downloads/debian buster-testing main >> /etc/apt/sources.list.d/3cxpbx-testing.list
 
 #auto install gnupg and apt-key
 apt install gnupg -y
