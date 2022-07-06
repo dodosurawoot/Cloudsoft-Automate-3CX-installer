@@ -40,7 +40,7 @@ wget -P /etc/profile.d/ https://raw.githubusercontent.com/dodosurawoot/Cloudsoft
 chmod 644 /etc/profile.d/banner.sh
 
 #Edit sshd_config to allow ssh banner
-sed -i 's/^#Banner.*/Banner \/etc\/profile.d\/banner.sh/g' /etc/ssh/sshd_config
+sed -i 's/^#Banner.*/Banner \/etc\/ssh\/banner.sh/g' /etc/ssh/sshd_config
 
 #Enable PrintMotd
 sed -i 's/^PrintMotd.*/PrintMotd no/g' /etc/ssh/sshd_config
