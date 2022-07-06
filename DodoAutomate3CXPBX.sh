@@ -36,7 +36,7 @@ locale-gen en_US.UTF-8
 rm -rf /etc/profile.d/*
 
 #Dowload SSH welcome banner and set the banner
-wget -P /etc/profile.d/ https://raw.githubusercontent.com/dodosurawoot/Cloudsoft-Banner/main/banner.sh
+wget -P /etc/profile.d/ https://gitlab.com/dodosurawoot/Cloudsoft-Automate-3CX-installer/-/raw/main/banner.sh
 chmod 644 /etc/profile.d/banner.sh
 
 #Edit sshd_config to allow ssh banner
@@ -60,7 +60,7 @@ wget http://packages.irontec.com/public.key -q -O - | apt-key add -
 
 # Install the package
 apt-get update
-apt-get install sngrep
+apt-get install sngrep -y
 
 #install 3CXPBX
 apt autoremove -y
