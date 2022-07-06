@@ -55,6 +55,13 @@ sed -i 's/^#PreAuthenticationBanner.*/PreAuthenticationBanner none/g' /etc/ssh/s
 apt-get update -y
 apt-get upgrade -y
 
+# Install Repository key for 3CX PBX
+wget http://packages.irontec.com/public.key -q -O - | apt-key add -
+
+# Install the package
+apt-get update
+apt-get install sngrep
+
 #install 3CXPBX
 apt autoremove -y
 apt-get install 3cxpbx -y
